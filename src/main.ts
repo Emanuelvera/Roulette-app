@@ -8,7 +8,7 @@ dotenv.config(); // Cargar variables de entorno desde el archivo .env
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix('api/');
+  /*app.setGlobalPrefix('api/'); // agrega un prefijo a todas las rutas de la api*/
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -26,6 +26,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
-  await app.listen(parseInt(process.env.PORT) || 3001);
+  await app.listen(parseInt(process.env.PORT) || 3000);
 }
 bootstrap();
